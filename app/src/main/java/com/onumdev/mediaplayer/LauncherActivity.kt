@@ -43,7 +43,7 @@ class LauncherActivity : AppCompatActivity() {
         when (requestCode) {
             MainActivity.REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    DataRepository.fetchSongsFromDeviceStorage(this)
+                    DataRepository.getSongsInDeviceStorage(this)
                 } else {
                     Snackbar.make(
                             findViewById(R.id.refresh_button),
@@ -62,7 +62,7 @@ class LauncherActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     fun addDeviceTracksToList() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            DataRepository.fetchSongsFromDeviceStorage(this)
+            DataRepository.getSongsInDeviceStorage(this)
         } else if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)){
             Log.d(LOG_TAG, "You're meant to show it in a context UI")
             Snackbar.make(findViewById(R.id.refresh_button), "You're meant to show it in a context UI", Snackbar.LENGTH_LONG).show()

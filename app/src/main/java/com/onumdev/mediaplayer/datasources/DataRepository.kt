@@ -1,11 +1,12 @@
 package com.onumdev.mediaplayer.datasources
 
 import android.content.Context
+import com.onumdev.mediaplayer.models.Song
 import com.onumdev.mediaplayer.musicengine.MusicReader
 
 object DataRepository {
 
-    lateinit var songList: List<String>
+    lateinit var songList: List<Song>
 
     val tracklist = mutableListOf(
         "1985",
@@ -34,6 +35,10 @@ object DataRepository {
     )
 
     fun fetchSongsFromDeviceStorage(context: Context) {
-        songList = MusicReader.fetchAllMusicOnDevice(context).values.toList()
+        //songList = MusicReader.fetchAllMusicOnDevice(context).values.toList()
+    }
+
+    fun getSongsInDeviceStorage(context: Context) {
+        songList = MusicReader.getMusicLibrary(context)
     }
 }
