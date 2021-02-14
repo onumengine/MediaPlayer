@@ -5,6 +5,6 @@ import android.content.Context
 object Player {
 
     fun playOneSong(context: Context) {
-        val songsMap = MusicReader.fetchAllMusicOnDevice(context)
+        val songsMap = MusicReader.getMusicLibrary(context)
     }
 }

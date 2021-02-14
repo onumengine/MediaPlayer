@@ -41,7 +41,7 @@ class LauncherActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
-            MainActivity.REQUEST_CODE -> {
+            REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     DataRepository.getSongsInDeviceStorage(this)
                 } else {

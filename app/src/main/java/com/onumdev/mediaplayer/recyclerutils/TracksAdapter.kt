@@ -15,7 +15,7 @@ class TracksAdapter: RecyclerView.Adapter<TracksViewholder>() {
     override fun onBindViewHolder(viewHolder: TracksViewholder, position: Int) {
         viewHolder.apply {
             songTitle.text = DataRepository.songList[position].title
-            artistName.text = DataRepository.songList[position].artist
+            artistName.text = DataRepository.songList[position].id.toString()
         }
     }
 
